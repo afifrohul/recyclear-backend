@@ -6,10 +6,10 @@
 <div>
     <div class="card mb-8">
         <div class="card-header flex flex-row justify-between">
-            <h1 class="h6">Tambah Post</h1>
+            <h1 class="h6">Tambah Artikel</h1>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{url('post/new')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{url('artikel/new')}}" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label class="text-gray-700 ml-1">Judul : </label>
@@ -24,18 +24,6 @@
                     <label class="text-gray-700 ml-1">Deskripsi : </label>
                     <textarea name="description" id="editor" class="form-input w-full block rounded mt-1 p-3 border-2 @error('description') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem ipsum dolor sit amet">{{ old('description') }}</textarea>
                     @error('description')
-                    <span class="pl-1 text-xs text-red-600 text-bold">
-                        {{$message}}
-                    </span>
-                    @enderror
-                </div>
-                <div class="mt-3">
-                    <label class="text-gray-700 ml-1">Kategori : </label>
-                    <select name="category" class="form-input mt-1 p-3 border-2 @error('category') border-red-500 @enderror focus:outline-none focus:border-teal-500 form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0">
-                        <option value="artikel">Artikel</option>
-                        <option value="berita">Berita</option>
-                    </select>
-                    @error('category')
                     <span class="pl-1 text-xs text-red-600 text-bold">
                         {{$message}}
                     </span>
@@ -73,7 +61,7 @@
                         <div class='flex items-center justify-center w-full mt-2'>
                             <label class='flex flex-col border-4 border-dashed w-full h-auto border-teal-500 group bg-gray-300'>
                                     <div class='flex flex-col items-center justify-center py-1'>
-                                        <img id="preview" src="{{asset('assets/upload/proker/default.png')}}" alt="preview" class="object-cover h-32">
+                                        <img id="preview" src="{{asset('assets/upload/artikel/default.png')}}" alt="preview" class="object-cover h-32">
                                     </div>
                             </label>
                         </div>
@@ -87,7 +75,7 @@
     </div>
     <div class="card">
         <div class="card-header flex flex-row justify-between">
-            <h1 class="h6">List Post</h1>
+            <h1 class="h6">List Artikel</h1>
         </div>
         <div class="card-body">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg p-3">
@@ -98,16 +86,13 @@
                                 No
                             </th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Judul Post
+                                Judul Artikel
                             </th>
                             <th scope="col" class="w-96 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Deskripsi
                             </th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Thumbnail
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Kategori
                             </th>
                             </th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -119,7 +104,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($getAllPost as $item)  
+                        @foreach ($getAllArtikel as $item)  
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <div class="text-sm text-gray-900">{{$loop->iteration}}</div>
@@ -132,11 +117,8 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <div class="text-sm text-gray-900">
-                                    <img class="h-16 object-cover m-auto" src="{{asset('assets/upload/post')}}/{{$item->thumbnail}}">
+                                    <img class="h-16 object-cover m-auto" src="{{asset('assets/upload/artikel')}}/{{$item->thumbnail}}">
                                 </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <div class="text-sm text-gray-900">{{$item->category}}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <div class="text-sm text-gray-900">
@@ -148,11 +130,11 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-center">
-                                <form action="{{url('/post/edit',$item->id)}}" method="POST" class="inline">
+                                <form action="{{url('/artikel/edit',$item->id)}}" method="POST" class="inline">
                                     @csrf
                                     <button type="submit" class="bg-teal-500 h-10 w-10 rounded hover:bg-teal-600"><i class="fa fa-pencil text-white"></i></button>
                                 </form><br><br>
-                                <form action="{{url('/post/destroy',$item->id)}}" method="POST" class="inline">
+                                <form action="{{url('/artikel/destroy',$item->id)}}" method="POST" class="inline">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="bg-red-600 h-10 w-10 rounded hover:bg-red-700" onclick="return confirm('Hapus Data ?')"><i class="fa fa-trash text-white"></i></button>

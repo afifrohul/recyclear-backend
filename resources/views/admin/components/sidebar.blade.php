@@ -13,9 +13,13 @@
         </a>
 
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Master Data</p>
-        <a href="{{url('post')}}" class="mb-3 @if (Request::segment(1) == 'post') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+        <a href="{{url('artikel')}}" class="mb-3 @if (Request::segment(1) == 'artikel') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
             <i class="fad fa-newspaper text-xs mr-2"></i>
             Artikel
+        </a>
+        <a href="{{url('tag')}}" class="mb-3 @if (Request::segment(1) == 'tag') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+            <i class="fad fa-newspaper text-xs mr-2"></i>
+            Tag
         </a>
 
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Dokumentasi</p>

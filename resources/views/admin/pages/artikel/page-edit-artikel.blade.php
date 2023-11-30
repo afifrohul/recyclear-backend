@@ -3,15 +3,15 @@
 <div>
     <div class="card mb-8">
         <div class="card-header flex flex-row justify-between">
-            <h1 class="h6">Edit Post</h1>
+            <h1 class="h6">Edit Artikel</h1>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{url('/post/update',$getDetailPost->id)}}" enctype="multipart/form-data">
+            <form method="POST" action="{{url('/artikel/update',$getDetailArtikel->id)}}" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div>
                     <label class="text-gray-700 ml-1">Judul : </label>
-                    <input type="text" name="title" class="form-input w-full block rounded mt-1 p-3 border-2 @error('title') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem Ipsum Dolor Sit Amet" value="{{$getDetailPost->title}}">
+                    <input type="text" name="title" class="form-input w-full block rounded mt-1 p-3 border-2 @error('title') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem Ipsum Dolor Sit Amet" value="{{$getDetailArtikel->title}}">
                     @error('title')
                     <span class="pl-1 text-xs text-red-600 text-bold">
                         {{$message}}
@@ -20,21 +20,9 @@
                 </div>
                 <div class="mt-3">
                     <label class="text-gray-700 ml-1">Deskripsi : </label>
-                    {{-- <input type="text" name="description" class="form-input w-full block rounded mt-1 p-3 border-2 @error('description') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem ipsum dolor sit amet" value="{{$getDetailPost->description}}"> --}}
-                    <textarea name="description" id="editor" class="form-input w-full block rounded mt-1 p-3 border-2 @error('description') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem ipsum dolor sit amet">{{$getDetailPost->description}}</textarea>
+                    {{-- <input type="text" name="description" class="form-input w-full block rounded mt-1 p-3 border-2 @error('description') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem ipsum dolor sit amet" value="{{$getDetailArtikel->description}}"> --}}
+                    <textarea name="description" id="editor" class="form-input w-full block rounded mt-1 p-3 border-2 @error('description') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="Lorem ipsum dolor sit amet">{{$getDetailArtikel->description}}</textarea>
                     @error('description')
-                    <span class="pl-1 text-xs text-red-600 text-bold">
-                        {{$message}}
-                    </span>
-                    @enderror
-                </div>
-                <div class="mt-3">
-                    <label class="text-gray-700 ml-1">Kategori : </label>
-                    <select name="category" class="form-input mt-1 p-3 border-2 @error('tag') border-red-500 @enderror focus:outline-none focus:border-teal-500 form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0">
-                        <option value="artikel" @if ($getDetailPost->category == 'artikel') selected @endif>Artikel</option>
-                        <option value="berita" @if ($getDetailPost->category == 'berita') selected @endif>Berita</option>
-                    </select>
-                    @error('tag')
                     <span class="pl-1 text-xs text-red-600 text-bold">
                         {{$message}}
                     </span>
@@ -75,7 +63,7 @@
                         <div class='flex items-center justify-center w-full mt-2'>
                             <label class='flex flex-col border-4 border-dashed w-full h-auto border-teal-500 group bg-gray-300'>
                                     <div class='flex flex-col items-center justify-center py-1'>
-                                        <img id="preview" src="{{asset('assets/upload/post')}}/{{$getDetailPost->thumbnail}}" alt="preview" class="object-cover h-32">
+                                        <img id="preview" src="{{asset('assets/upload/artikel')}}/{{$getDetailArtikel->thumbnail}}" alt="preview" class="object-cover h-32">
                                     </div>
                             </label>
                         </div>

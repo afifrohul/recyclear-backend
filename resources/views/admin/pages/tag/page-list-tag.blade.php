@@ -17,27 +17,6 @@
                     </span>
                     @enderror
                 </div>
-                <div class="mt-3">
-                    <label class="text-gray-700 ml-1">Kode Warna (hexadesimal): </label>
-                    <input type="text" name="color_code" class="form-input w-full block rounded mt-1 p-3 border-2 @error('color_code') border-red-500 @enderror focus:outline-none focus:border-teal-500" placeholder="#ffffff" value="{{old('color_code')}}" id="colors">
-                    @error('color_code')
-                    <span class="pl-1 text-xs text-red-600 text-bold">
-                        {{$message}}
-                    </span>
-                    @enderror
-                </div>
-                <div class="mt-3 grid grid-cols-2 gap-6 xl:grid-cols-1 items-center">
-                    <div>
-                        <label class="text-gray-700 ml-1">Preview : </label>
-                        <div class='flex items-center justify-center w-full mt-2'>
-                            <label class='flex flex-col border-4 border-dashed w-full h-auto border-teal-500 group bg-gray-300'>
-                                    <div class='flex flex-col items-center justify-center py-1'>
-                                        <div class="w-16 h-16" style="background-color: " id="preview"></div>
-                                    </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
                 <div class="mt-5">
                     <button type="submit" class="btn-shadow">Simpan</button>
                 </div>
@@ -59,12 +38,6 @@
                             <th scope="col" class="w-96 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Nama
                             </th>
-                            <th scope="col" class="w-96 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Kode Warna
-                            </th>
-                            <th scope="col" class="w-96 px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Warna
-                            </th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Opsi
                             </th>
@@ -78,12 +51,6 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <div class="text-sm text-gray-900">{{$item->name}}</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <div class="text-sm text-gray-900">{{$item->color_code}}</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <div class="w-16 h-16 mx-auto" style="background-color: {{$item->color_code}}"></div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-center">
                                 <form action="{{url('/tag/edit',$item->id)}}" method="POST" class="inline">
