@@ -47,11 +47,25 @@
                                 <div class="text-sm text-gray-900">Menambahkan Data User (POST)</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-left">
-                                <div class="text-sm text-gray-900">/user</div>
+                                <div class="text-sm text-gray-900">/newUser</div>
                             </td>
-                            {{-- <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/user')}}" target="__">Klik Disini</a></div>
-                            </td> --}}
+                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/newUser')}}" target="__">Klik Disini</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                <div class="text-sm text-gray-900">1.</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-left">
+                                <div class="text-sm text-gray-900">Mengubah Status User (PUT)</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-left">
+                                <div class="text-sm text-gray-900">/changeUserStatus</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/changeUserStatus')}}" target="__">Klik Disini</a></div>
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
