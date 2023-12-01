@@ -38,7 +38,7 @@
                     </div>
                     <div class="mt-8">
                         <h1 class="h5">7 Jumlah Jenis Sampah Plastik</h1>
-                        <p>PET, HDPE, VPC, LDPE, PP, PS, dan lainnya</p>
+                        <p>PET, HDPE, PVC, LDPE, PP, PS, dan lainnya</p>
                     </div>
                 </div>
             </div>

@@ -56,7 +56,7 @@
                                 <form action="{{url('/tag/edit',$item->id)}}" method="POST" class="inline">
                                     @csrf
                                     <button type="submit" class="bg-teal-500 h-10 w-10 rounded hover:bg-teal-600"><i class="fa fa-pencil text-white"></i></button>
-                                </form><br><br>
+                                </form>
                                 <form action="{{url('/tag/destroy',$item->id)}}" method="POST" class="inline">
                                     @method('delete')
                                     @csrf

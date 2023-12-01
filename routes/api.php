@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/tag', [App\Http\Controllers\API\TagController::class, 'tag']);
+Route::get('/article', [App\Http\Controllers\API\ArticleController::class, 'article']);

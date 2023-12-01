@@ -11,7 +11,7 @@ class Article extends Model
     protected $table = 'articles';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['title', 'slug', 'description', 'thumbnail', 'category'];
+    protected $fillable = ['title', 'slug', 'description', 'thumbnail'];
 
     public function tags()
     {
