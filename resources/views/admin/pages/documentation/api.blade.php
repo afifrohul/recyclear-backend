@@ -30,13 +30,13 @@
                                 <div class="text-sm text-gray-900">1.</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-left">
-                                <div class="text-sm text-gray-900">Mengambil Semua Data User (GET)</div>
+                                <div class="text-sm text-gray-900">Validasi Data User (POST)</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-left">
-                                <div class="text-sm text-gray-900">/user</div>
+                                <div class="text-sm text-gray-900">/validateUser</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/user')}}" target="__">Klik Disini</a></div>
+                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/validateUser')}}" target="__">Klik Disini</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -58,13 +58,13 @@
                                 <div class="text-sm text-gray-900">1.</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-left">
-                                <div class="text-sm text-gray-900">Mengubah Status User (PUT)</div>
+                                <div class="text-sm text-gray-900">Mengubah Status User param:id (PUT)</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-left">
-                                <div class="text-sm text-gray-900">/changeUserStatus</div>
+                                <div class="text-sm text-gray-900">/changeUserStatus/{id}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/changeUserStatus')}}" target="__">Klik Disini</a></div>
+                                <div class="text-sm text-gray-900"><a class="p-3 rounded bg-teal-400 hover:bg-teal-700" href="{{url('api/changeUserStatus/{id}')}}" target="__">Klik Disini</a></div>
                             </td>
                         </tr>
                         <tr>

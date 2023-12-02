@@ -14,34 +14,34 @@ use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
-    public function user()
-    {
-        $status = '';
-        $message = '';
-        $data = '';
+    // public function user()
+    // {
+    //     $status = '';
+    //     $message = '';
+    //     $data = '';
 
-        try {
-            $user = User::all();
-            $status = 'success';
-            $message = 'berhasil';
-            $data = $user;
-        }catch(\Exception $e){
-            $status = 'failed';
-            $message = 'Gagal. ' . $e->getMessage();
-        }
-        catch(\Illuminate\Database\QueryException $e){
-            $status = 'failed';
-            $message = 'Gagal. ' . $e->getMessage();
-        }
-        finally{
-            return response()->json([
-                'status' => $status,
-                'message' => $message,
-                'data' => $data
-            ], 200);
-        }
+    //     try {
+    //         $user = User::all();
+    //         $status = 'success';
+    //         $message = 'berhasil';
+    //         $data = $user;
+    //     }catch(\Exception $e){
+    //         $status = 'failed';
+    //         $message = 'Gagal. ' . $e->getMessage();
+    //     }
+    //     catch(\Illuminate\Database\QueryException $e){
+    //         $status = 'failed';
+    //         $message = 'Gagal. ' . $e->getMessage();
+    //     }
+    //     finally{
+    //         return response()->json([
+    //             'status' => $status,
+    //             'message' => $message,
+    //             'data' => $data
+    //         ], 200);
+    //     }
 
-    }
+    // }
     
     public function newUser(Request $request)
     {
@@ -93,5 +93,23 @@ class UserController extends Controller
                 "info" => $e->getMessage()
             ], 200);
         }
+    }
+
+    public function validateUser(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $token = $user->createToken('AuthToken')->plainTextToken;
+
+            return response()->json([
+                'message' => 'Valid credentials',
+                'user' => $user,
+                'token' => $token
+            ], 200);
+        }
+
+        return response()->json(['message' => 'Invalid credentials'], 401);
     }
 }

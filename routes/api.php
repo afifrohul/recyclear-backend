@@ -18,11 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-// Route::middleware('auth:sanctum')->get('/user', [App\Http\Controllers\API\UserController::class, 'user']);
-Route::get('/user', [App\Http\Controllers\API\UserController::class, 'user']);
 Route::post('/newUser', [App\Http\Controllers\API\UserController::class, 'newUser']);
-// Route::middleware('auth:sanctum')->put('/changeStatusUser/{user}', [App\Http\Controllers\API\UserController::class, 'changeStatusUser']);
-Route::put('/changeStatusUser/{user}', [App\Http\Controllers\API\UserController::class, 'changeStatusUser']);
+Route::post('/validateUser', [App\Http\Controllers\API\UserController::class, 'validateUser']);
+
+Route::middleware('auth.apikey')->group(function () {
+    // Route::get('/user', [App\Http\Controllers\API\UserController::class, 'user']);
+    Route::put('/changeStatusUser/{user}', [App\Http\Controllers\API\UserController::class, 'changeStatusUser']);
+});
 
 Route::get('/tag', [App\Http\Controllers\API\TagController::class, 'tag']);
 Route::get('/article', [App\Http\Controllers\API\ArticleController::class, 'article']);
